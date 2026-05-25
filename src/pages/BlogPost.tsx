@@ -50,14 +50,14 @@ export default function BlogPost() {
 
           {/* Breadcrumb */}
           <div
-            className="flex items-center gap-2 text-white/30 text-xs mb-10 tracking-wide"
+            className="flex items-center gap-2 text-white/30 text-xs mb-10 tracking-wide flex-wrap"
             style={{ animation: "fadeInDown 0.6s ease both" }}
           >
             <Link to="/" className="hover:text-[#D4AF37] transition-colors">Главная</Link>
             <span>/</span>
             <Link to="/blog" className="hover:text-[#D4AF37] transition-colors">Блог</Link>
             <span>/</span>
-            <span className="text-white/50 truncate max-w-xs">{post.title}</span>
+            <span className="text-white/50">{post.category}</span>
           </div>
 
           {/* Meta */}
@@ -76,7 +76,7 @@ export default function BlogPost() {
 
           {/* Title */}
           <h1
-            className="font-cormorant text-4xl md:text-6xl font-light text-white leading-[1.1] mb-6"
+            className="font-cormorant text-4xl md:text-5xl font-light text-white leading-[1.1] mb-6"
             style={{ animation: "fadeInUp 0.7s ease 0.2s both" }}
           >
             {post.title}
@@ -91,29 +91,61 @@ export default function BlogPost() {
           </p>
 
           {/* Divider */}
-          <div
-            className="flex items-center gap-4 mb-12"
-            style={{ animation: "fadeInUp 0.7s ease 0.35s both" }}
-          >
+          <div className="flex items-center gap-4 mb-12" style={{ animation: "fadeInUp 0.7s ease 0.35s both" }}>
             <div className="h-px flex-1 bg-gradient-to-r from-[#D4AF37]/30 to-transparent" />
             <span className="text-[#D4AF37]/30 text-xl">✦</span>
             <div className="h-px flex-1 bg-gradient-to-l from-[#D4AF37]/30 to-transparent" />
           </div>
 
           {/* Lead */}
-          <div
-            className="border-l-2 border-[#D4AF37]/50 pl-7 mb-12"
-            style={{ animation: "fadeInUp 0.7s ease 0.4s both" }}
-          >
+          <div className="border-l-2 border-[#D4AF37]/50 pl-7 mb-14" style={{ animation: "fadeInUp 0.7s ease 0.4s both" }}>
             <p className="font-cormorant text-xl text-white/80 italic leading-relaxed">{post.excerpt}</p>
           </div>
 
-          {/* Content */}
-          <div className="space-y-8" style={{ animation: "fadeInUp 0.7s ease 0.5s both" }}>
-            {post.content.map((paragraph, i) => (
-              <p key={i} className="text-white/65 text-base leading-[1.9] tracking-wide">
-                {paragraph}
-              </p>
+          {/* Sections */}
+          <div className="space-y-14" style={{ animation: "fadeInUp 0.7s ease 0.5s both" }}>
+            {post.sections.map((section, i) => (
+              <div key={i}>
+                {section.heading && (
+                  <h2 className="font-cormorant text-2xl md:text-3xl font-semibold text-white mb-5 leading-snug">
+                    {section.heading}
+                  </h2>
+                )}
+
+                {section.text && section.text.split("\n\n").map((para, j) => (
+                  <p key={j} className="text-white/65 text-base leading-[1.9] mb-4">{para}</p>
+                ))}
+
+                {section.example && (
+                  <div className="my-6 border border-[#D4AF37]/20 bg-[#D4AF37]/4 px-7 py-5 relative">
+                    <div className="absolute -top-3 left-6 px-3 bg-[#050A14]">
+                      <span className="text-[#D4AF37]/60 text-xs tracking-widest uppercase">Пример из практики</span>
+                    </div>
+                    <p className="text-white/70 text-sm leading-relaxed italic">{section.example}</p>
+                  </div>
+                )}
+
+                {section.list && (
+                  <ul className="space-y-3 my-5">
+                    {section.list.map((item, j) => (
+                      <li key={j} className="flex items-start gap-3 text-white/65 text-base leading-relaxed">
+                        {item.icon ? (
+                          <span className="mt-0.5 text-base leading-none flex-shrink-0">{item.icon}</span>
+                        ) : (
+                          <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-[#D4AF37]/50 flex-shrink-0" />
+                        )}
+                        <span>{item.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {section.highlight && (
+                  <div className="my-6 border-l-2 border-[#D4AF37] pl-6">
+                    <p className="font-cormorant text-xl text-[#D4AF37] italic leading-snug">{section.highlight}</p>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -128,14 +160,14 @@ export default function BlogPost() {
           <div className="border border-[#D4AF37]/25 bg-[#D4AF37]/4 p-10 text-center relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent" />
             <p className="font-cormorant text-[#D4AF37] text-2xl italic mb-3">Хотите применить это к вашему бизнесу?</p>
-            <p className="text-white/45 text-sm mb-8 leading-relaxed">
-              Статья даёт общее понимание. Персональный расчёт по вашей натальной карте — конкретные даты и рекомендации.
+            <p className="text-white/45 text-sm mb-8 leading-relaxed max-w-md mx-auto">
+              Персональный расчёт по вашей натальной карте — конкретные даты и рекомендации в PDF-отчёте в течение 24 часов.
             </p>
             <Link
               to="/#order"
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black font-bold tracking-wider hover:bg-[#FFD700] transition-all duration-300 text-sm"
             >
-              Заказать консультацию <Icon name="ArrowRight" size={16} />
+              {post.cta} <Icon name="ArrowRight" size={16} />
             </Link>
           </div>
         </div>
@@ -147,13 +179,13 @@ export default function BlogPost() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center gap-4 mb-10">
               <div className="h-px flex-1 bg-white/8" />
-              <span className="text-white/30 text-xs tracking-widest uppercase">Другие статьи</span>
+              <span className="text-white/30 text-xs tracking-widest uppercase">Читайте также</span>
               <div className="h-px flex-1 bg-white/8" />
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {others.map((p) => (
                 <Link key={p.slug} to={`/blog/${p.slug}`} className="group block">
-                  <div className="border border-white/8 bg-[#0A1020] hover:border-[#D4AF37]/30 transition-all duration-400 p-7 h-full relative overflow-hidden">
+                  <div className="border border-white/8 bg-[#0A1020] hover:border-[#D4AF37]/30 transition-all duration-300 p-7 h-full relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-0 h-px bg-[#D4AF37] group-hover:w-full transition-all duration-500" />
                     <span className="text-[#D4AF37]/50 text-xs tracking-widest uppercase mb-4 block">{p.category}</span>
                     <h3 className="font-cormorant text-lg font-semibold text-white group-hover:text-[#D4AF37] transition-colors leading-snug mb-3">

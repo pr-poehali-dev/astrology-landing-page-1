@@ -31,7 +31,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-const categories = ["Все", "Транзиты", "Натальная карта", "Финансы", "Элективная астрология", "Партнёрство", "Стратегия"];
+const categories = ["Все", "Элективная астрология", "Прогнозы", "Финансы", "Партнёрство", "Стратегия", "Карьера", "Кейсы"];
 
 export default function Blog() {
   const [scrolled, setScrolled] = useState(false);
