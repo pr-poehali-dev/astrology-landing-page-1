@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/files/da42bec6-5d11-4174-8b09-ec83223d0a6f.jpg";
@@ -145,6 +146,12 @@ export default function Index() {
                 {label}
               </button>
             ))}
+            <Link
+              to="/blog"
+              className="text-white/60 hover:text-[#D4AF37] text-sm tracking-wider transition-colors duration-300 font-medium"
+            >
+              Блог
+            </Link>
           </nav>
 
           <button
