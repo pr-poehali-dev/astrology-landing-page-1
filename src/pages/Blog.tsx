@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Icon from "@/components/ui/icon";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -50,6 +51,19 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-[#050A14] text-white font-montserrat overflow-x-hidden">
+      <Helmet>
+        <title>Астрологический блог для бизнеса – StarsBiz</title>
+        <meta name="description" content="Экспертные статьи об астрологии для предпринимателей: транзиты, выбор дат для сделок, финансовые прогнозы, совместимость партнёров. Практические советы от StarsBiz." />
+        <link rel="canonical" href="https://starsbiz.ru/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Астрологический блог для бизнеса – StarsBiz" />
+        <meta property="og:description" content="Экспертные статьи об астрологии для предпринимателей: транзиты, выбор дат для сделок, финансовые прогнозы, совместимость партнёров." />
+        <meta property="og:url" content="https://starsbiz.ru/blog" />
+        <meta property="og:site_name" content="StarsBiz" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Астрологический блог для бизнеса – StarsBiz" />
+        <meta name="twitter:description" content="Экспертные статьи об астрологии для предпринимателей." />
+      </Helmet>
 
       {/* HEADER */}
       <header

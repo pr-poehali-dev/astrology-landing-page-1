@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Icon from "@/components/ui/icon";
 import { getPostBySlug, blogPosts } from "@/data/blogPosts";
 
@@ -12,9 +13,25 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/blog" replace />;
 
   const others = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
+  const canonicalUrl = `https://starsbiz.ru/blog/${post.slug}`;
 
   return (
     <div className="min-h-screen bg-[#050A14] text-white font-montserrat overflow-x-hidden">
+      <Helmet>
+        <title>{post.metaTitle}</title>
+        <meta name="description" content={post.metaDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.metaTitle} />
+        <meta property="og:description" content={post.metaDescription} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:site_name" content="StarsBiz" />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:section" content={post.category} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.metaTitle} />
+        <meta name="twitter:description" content={post.metaDescription} />
+      </Helmet>
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#050A14]/97 border-b border-[#D4AF37]/10 backdrop-blur-xl">

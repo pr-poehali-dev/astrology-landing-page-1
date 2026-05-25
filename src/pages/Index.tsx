@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/files/da42bec6-5d11-4174-8b09-ec83223d0a6f.jpg";
@@ -111,6 +112,19 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-[#050A14] text-white font-montserrat overflow-x-hidden">
+      <Helmet>
+        <title>StarsBiz — Астрологический бизнес-консультант | Звёзды для вашей прибыли</title>
+        <meta name="description" content="Астрологический бизнес-консультант StarsBiz — точный расчёт транзитов для принятия бизнес-решений. Конфиденциально, под NDA. Разовые прогнозы, годовые абонементы, подбор бизнес-направления." />
+        <link rel="canonical" href="https://starsbiz.ru/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="StarsBiz — Астрологический бизнес-консультант" />
+        <meta property="og:description" content="Точный расчёт транзитов для принятия бизнес-решений. Конфиденциально, под NDA." />
+        <meta property="og:url" content="https://starsbiz.ru/" />
+        <meta property="og:site_name" content="StarsBiz" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="StarsBiz — Астрологический бизнес-консультант" />
+        <meta name="twitter:description" content="Точный расчёт транзитов для принятия бизнес-решений. Конфиденциально, под NDA." />
+      </Helmet>
 
       {/* HEADER */}
       <header
