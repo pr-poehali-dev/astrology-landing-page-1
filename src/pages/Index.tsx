@@ -590,10 +590,15 @@ export default function Index() {
             <div>
               <div className="text-white/40 text-xs tracking-widest uppercase mb-5">Документы</div>
               <ul className="space-y-3">
-                {["Политика конфиденциальности", "Обработка персональных данных", "Публичная оферта", "Пользовательское соглашение"].map((doc) => (
-                  <li key={doc}>
-                    <a href="#" className="text-white/35 text-xs hover:text-[#D4AF37]/70 transition-colors leading-relaxed">
-                      {doc}
+                {[
+                  { label: "Политика конфиденциальности", href: "/privacy" },
+                  { label: "Обработка персональных данных", href: "/consent" },
+                  { label: "Публичная оферта", href: "/offer" },
+                  { label: "Пользовательское соглашение", href: "/agreement" },
+                ].map((doc) => (
+                  <li key={doc.href}>
+                    <a href={doc.href} className="text-white/35 text-xs hover:text-[#D4AF37]/70 transition-colors leading-relaxed">
+                      {doc.label}
                     </a>
                   </li>
                 ))}
