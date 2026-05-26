@@ -304,26 +304,45 @@ export default function Index() {
               <div className="space-y-6">
                 {/* Marketing block */}
                 <div className="bg-[#0A1628] border border-[#D4AF37]/15 p-6 space-y-4">
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    В основе метода — сплав западной классики, ведической астрологии и секретных алгоритмов коррекции времени.
+                  </p>
+                  <div className="h-px bg-[#D4AF37]/15" />
                   <p className="font-cormorant text-[#D4AF37] text-xl italic leading-snug">
-                    «Работаем без публичности. Только для тех, кто не может позволить себе ошибку.»
+                    «То, о чём молчат другие астрологи. Я не предсказываю будущее — я вычисляю его с погрешностью до 15 минут.»
+                  </p>
+                  <div className="h-px bg-[#D4AF37]/15" />
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Работаем без публичности. Только для тех, кто не может позволить себе ошибку.
+                  </p>
+                  <p className="text-white/50 text-sm font-medium">В отличие от масс-маркета:</p>
+                  <div className="space-y-2">
+                    {[
+                      "Никаких общих фраз («ждутся перемены»).",
+                      "Только даты, аспекты, риски.",
+                      "Ваши данные удаляются после прогноза.",
+                    ].map((item) => (
+                      <div key={item} className="flex items-start gap-3 text-sm text-white/55">
+                        <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">•</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="h-px bg-[#D4AF37]/15" />
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Три лучшие даты для сделок, два периода тишины — конкретно, без воды.
                   </p>
                   <div className="h-px bg-[#D4AF37]/15" />
                   <p className="text-white/55 text-sm leading-relaxed">
-                    Я не предсказываю будущее. Я <span className="text-white/90">вычисляю его с точностью до 15 минут.</span> Три лучшие даты для сделок, два периода тишины — конкретно, без «ждутся перемены».
+                    Один клиент сэкономил <span className="text-white/90 font-medium">700 000 ₽</span>, перенеся сделку на два дня по прогнозу. Другой — не послушал и потерял контракт.
+                  </p>
+                  <p className="text-white/40 text-sm italic">
+                    Выбор за вами. Расчёт за мной (в пределах оферты).
                   </p>
                   <div className="h-px bg-[#D4AF37]/15" />
-                  <div className="flex items-start gap-3 text-sm text-white/50">
-                    <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">✦</span>
-                    <span>Один клиент сэкономил <span className="text-white/90">700 000 ₽</span>, перенеся сделку на два дня по прогнозу</span>
-                  </div>
-                  <div className="flex items-start gap-3 text-sm text-white/50">
-                    <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">✦</span>
-                    <span>Ваши данные <span className="text-white/90">удаляются после прогноза.</span> Никакой базы, никакой огласки</span>
-                  </div>
-                  <div className="flex items-start gap-3 text-sm text-white/50">
-                    <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">✦</span>
-                    <span>Это не гороскоп из газеты — это <span className="text-white/90">навигатор для вашего календаря</span></span>
-                  </div>
+                  <p className="font-cormorant text-[#D4AF37]/80 text-lg italic">
+                    «Это не гороскоп из газеты — это навигатор для вашего календаря.»
+                  </p>
                 </div>
               </div>
             </FadeIn>
