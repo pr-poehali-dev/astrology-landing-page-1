@@ -534,13 +534,14 @@ export default function Index() {
                   </div>
                   <span className="text-white/40 text-xs leading-relaxed group-hover:text-white/60 transition-colors">
                     Я даю согласие на обработку моих персональных данных в соответствии с{" "}
-                    <a
-                      href="#"
+                    <Link
+                      to="/privacy"
+                      target="_blank"
                       onClick={(e) => e.stopPropagation()}
                       className="text-[#D4AF37]/60 hover:text-[#D4AF37] underline underline-offset-2 transition-colors"
                     >
                       Политикой конфиденциальности
-                    </a>{" "}
+                    </Link>{" "}
                     и подтверждаю своё согласие на обработку персональных данных согласно ФЗ-152 «О персональных данных» *
                   </span>
                 </label>
@@ -616,6 +617,9 @@ export default function Index() {
 
           <div className="pt-8 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/20 text-xs">© 2025 StarsBiz. Все права защищены.</p>
+            <Link to="/privacy" className="text-white/25 hover:text-[#D4AF37]/60 text-xs transition-colors">
+              Политика конфиденциальности
+            </Link>
             <p className="text-white/15 text-xs">Результаты носят рекомендательный характер</p>
           </div>
         </div>
