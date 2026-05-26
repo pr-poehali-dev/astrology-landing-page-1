@@ -46,7 +46,7 @@ export default function PublicOffer() {
 
           <section>
             <p>
-              <span className="text-white/90">Индивидуальный предприниматель Растегаев Виктор Геннадьевич</span> (ИНН: 165019486049), именуемый в дальнейшем «Исполнитель», публикует настоящую Оферту, адресованную неограниченному кругу физических лиц (далее — «Заказчик»), о заключении договора возмездного оказания услуг астрологического консультирования на условиях, изложенных ниже.
+              <span className="text-white/90">Индивидуальный предприниматель Растегаев В.Г.</span> (ИНН: 165019486049), именуемый в дальнейшем «Исполнитель», публикует настоящую Оферту, адресованную неограниченному кругу физических лиц (далее — «Заказчик»), о заключении договора возмездного оказания услуг астрологического консультирования на условиях, изложенных ниже.
             </p>
           </section>
 
@@ -179,7 +179,7 @@ export default function PublicOffer() {
           <section>
             <h2 className="font-cormorant text-2xl text-white mb-4">10. Реквизиты исполнителя</h2>
             <div className="space-y-2">
-              <p><span className="text-white/40">Исполнитель:</span> <span className="text-white/90">ИП Растегаев Виктор Геннадьевич</span></p>
+              <p><span className="text-white/40">Исполнитель:</span> <span className="text-white/90">ИП Растегаев В.Г.</span></p>
               <p><span className="text-white/40">ИНН:</span> <span className="text-white/90">165019486049</span></p>
               <p><span className="text-white/40">Email:</span> <a href="mailto:info@starsbiz.ru" className="text-[#D4AF37] hover:text-[#FFD700] transition-colors">info@starsbiz.ru</a></p>
               <p><span className="text-white/40">Сайт:</span> <a href="https://starsbiz.ru" className="text-[#D4AF37] hover:text-[#FFD700] transition-colors">starsbiz.ru</a></p>

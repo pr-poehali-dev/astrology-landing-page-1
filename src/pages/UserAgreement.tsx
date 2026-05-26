@@ -47,7 +47,7 @@ export default function UserAgreement() {
           <section>
             <h2 className="font-cormorant text-2xl text-white mb-4">1. Общие положения</h2>
             <div className="space-y-3">
-              <p>1.1. Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует отношения между <span className="text-white/90">ИП Растегаевым Виктором Геннадьевичем</span> (ИНН: 165019486049), именуемым далее «Администрация», и любым лицом, использующим сайт <span className="text-[#D4AF37]">https://starsbiz.ru</span> (далее — «Пользователь»).</p>
+              <p>1.1. Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует отношения между <span className="text-white/90">ИП Растегаевым В.Г.</span> (ИНН: 165019486049), именуемым далее «Администрация», и любым лицом, использующим сайт <span className="text-[#D4AF37]">https://starsbiz.ru</span> (далее — «Пользователь»).</p>
               <p>1.2. Начало использования Сайта (просмотр страниц, заполнение форм, оформление заказа) означает полное и безоговорочное принятие Пользователем условий настоящего Соглашения.</p>
               <p>1.3. Администрация вправе в одностороннем порядке вносить изменения в Соглашение. Изменения вступают в силу с момента публикации обновлённой редакции на Сайте. Продолжение использования Сайта после публикации изменений означает согласие Пользователя с новой редакцией.</p>
             </div>
@@ -167,7 +167,7 @@ export default function UserAgreement() {
           <section>
             <h2 className="font-cormorant text-2xl text-white mb-4">9. Реквизиты Администрации</h2>
             <div className="space-y-2">
-              <p><span className="text-white/40">Администрация:</span> <span className="text-white/90">ИП Растегаев Виктор Геннадьевич</span></p>
+              <p><span className="text-white/40">Администрация:</span> <span className="text-white/90">ИП Растегаев В.Г.</span></p>
               <p><span className="text-white/40">ИНН:</span> <span className="text-white/90">165019486049</span></p>
               <p><span className="text-white/40">Email:</span> <a href="mailto:info@starsbiz.ru" className="text-[#D4AF37] hover:text-[#FFD700] transition-colors">info@starsbiz.ru</a></p>
               <p><span className="text-white/40">Сайт:</span> <a href="https://starsbiz.ru" className="text-[#D4AF37] hover:text-[#FFD700] transition-colors">starsbiz.ru</a></p>

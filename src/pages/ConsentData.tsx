@@ -45,7 +45,7 @@ export default function ConsentData() {
 
           <section>
             <p className="mb-4">
-              Я, действуя своей волей и в своём интересе, даю согласие <span className="text-white/90">Индивидуальному предпринимателю Растегаеву Виктору Геннадьевичу</span> (ИНН: 165019486049, сайт: <span className="text-[#D4AF37]">https://starsbiz.ru</span>) (далее — «Оператор») на обработку следующих моих персональных данных:
+              Я, действуя своей волей и в своём интересе, даю согласие <span className="text-white/90">Индивидуальному предпринимателю Растегаеву В.Г.</span> (ИНН: 165019486049, сайт: <span className="text-[#D4AF37]">https://starsbiz.ru</span>) (далее — «Оператор») на обработку следующих моих персональных данных:
             </p>
             <ul className="space-y-2 pl-4 mb-4">
               {["Фамилия, имя, отчество", "Дата, время и место рождения", "Место проживания", "Адрес электронной почты", "Номер телефона / мессенджера", "Данные об оплате услуг"].map((item) => (
@@ -111,7 +111,7 @@ export default function ConsentData() {
           <section>
             <h2 className="font-cormorant text-2xl text-white mb-4">Реквизиты оператора</h2>
             <div className="space-y-2">
-              <p><span className="text-white/40">Оператор:</span> <span className="text-white/90">ИП Растегаев Виктор Геннадьевич</span></p>
+              <p><span className="text-white/40">Оператор:</span> <span className="text-white/90">ИП Растегаев В.Г.</span></p>
               <p><span className="text-white/40">ИНН:</span> <span className="text-white/90">165019486049</span></p>
               <p><span className="text-white/40">Email:</span> <a href="mailto:info@starsbiz.ru" className="text-[#D4AF37] hover:text-[#FFD700] transition-colors">info@starsbiz.ru</a></p>
               <p><span className="text-white/40">Сайт:</span> <a href="https://starsbiz.ru" className="text-[#D4AF37] hover:text-[#FFD700] transition-colors">starsbiz.ru</a></p>
