@@ -69,7 +69,7 @@ const steps = [
   { icon: "CalendarDays", title: "Вы присылаете данные", desc: "Дата, время и место рождения — чем точнее, тем глубже анализ." },
   { icon: "Clock", title: "Расчёт (до 24 часов)", desc: "Строим натальную карту и анализируем транзиты с эфемеридной точностью." },
   { icon: "FileText", title: "Получаете PDF-отчёт", desc: "Конкретные даты, события и рекомендации для принятия решений." },
-  { icon: "ShieldCheck", title: "Гарантия возврата", desc: "Если не найдёте полезной информации — вернём деньги без вопросов." },
+  { icon: "ShieldCheck", title: "Гарантии", desc: "Мы уверены в качестве наших прогнозов. Если не получили полезной информации (ни одной конкретной даты, аспекта или практического совета), мы бесплатно доработаем прогноз с учётом ваших пожеланий." },
 ];
 
 export default function Index() {
@@ -617,9 +617,9 @@ export default function Index() {
 
           <div className="pt-8 border-t border-white/8 flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/20 text-xs">© 2025 StarsBiz. Все права защищены.</p>
-            <Link to="/privacy" className="text-white/25 hover:text-[#D4AF37]/60 text-xs transition-colors">
+            <a href="/privacy" className="text-white/35 hover:text-[#D4AF37] text-xs transition-colors underline underline-offset-2">
               Политика конфиденциальности
-            </Link>
+            </a>
             <p className="text-white/15 text-xs">Результаты носят рекомендательный характер</p>
           </div>
         </div>
