@@ -75,6 +75,7 @@ const steps = [
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "+7 ", comment: "" });
+  const [pdConsent, setPdConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
 
@@ -101,9 +102,11 @@ export default function Index() {
     if (!formData.name.trim()) return setFormError("Введите ваше имя");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) return setFormError("Введите корректный email");
     if (formData.phone.replace(/\D/g, "").length < 11) return setFormError("Введите полный номер телефона");
+    if (!pdConsent) return setFormError("Необходимо дать согласие на обработку персональных данных");
     setFormError("");
     setSubmitted(true);
     setFormData({ name: "", email: "", phone: "+7 ", comment: "" });
+    setPdConsent(false);
   };
 
   const scrollTo = (id: string) => {
@@ -506,6 +509,42 @@ export default function Index() {
                     className="w-full bg-[#0A1020] border border-white/15 text-white placeholder-white/30 px-5 py-4 text-sm focus:outline-none focus:border-[#D4AF37]/60 transition-colors resize-none"
                   />
                 </div>
+                {/* Согласие на обработку ПД */}
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    <input
+                      type="checkbox"
+                      checked={pdConsent}
+                      onChange={(e) => { setPdConsent(e.target.checked); if (e.target.checked) setFormError(""); }}
+                      className="sr-only"
+                    />
+                    <div
+                      className={`w-5 h-5 border transition-all duration-200 flex items-center justify-center flex-shrink-0 ${
+                        pdConsent
+                          ? "border-[#D4AF37] bg-[#D4AF37]"
+                          : "border-white/25 bg-transparent group-hover:border-[#D4AF37]/50"
+                      }`}
+                    >
+                      {pdConsent && (
+                        <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                          <path d="M1 4L3.5 6.5L9 1" stroke="#000" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </div>
+                  </div>
+                  <span className="text-white/40 text-xs leading-relaxed group-hover:text-white/60 transition-colors">
+                    Я даю согласие на обработку моих персональных данных в соответствии с{" "}
+                    <a
+                      href="#"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[#D4AF37]/60 hover:text-[#D4AF37] underline underline-offset-2 transition-colors"
+                    >
+                      Политикой конфиденциальности
+                    </a>{" "}
+                    и подтверждаю своё согласие на обработку персональных данных согласно ФЗ-152 «О персональных данных» *
+                  </span>
+                </label>
+
                 {formError && <p className="text-red-400/80 text-sm">{formError}</p>}
                 <button
                   type="submit"
@@ -513,10 +552,6 @@ export default function Index() {
                 >
                   ОТПРАВИТЬ ЗАЯВКУ
                 </button>
-                <p className="text-white/25 text-xs text-center leading-relaxed">
-                  Нажимая кнопку, вы соглашаетесь с{" "}
-                  <a href="#" className="text-[#D4AF37]/50 hover:text-[#D4AF37] transition-colors">политикой конфиденциальности</a>
-                </p>
               </form>
             )}
           </FadeIn>
