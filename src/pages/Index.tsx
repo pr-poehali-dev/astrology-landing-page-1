@@ -145,11 +145,11 @@ export default function Index() {
             <img
               src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
               alt="StarsBiz"
-              className="w-11 h-11 rounded-full object-cover"
+              className="w-20 h-20 rounded-full object-cover"
             />
             <div>
-              <div className="font-cormorant text-[#D4AF37] text-xl font-semibold tracking-widest leading-none">STARS</div>
-              <div className="font-cormorant text-white/60 text-xs tracking-[0.3em] leading-none">BIZ</div>
+              <div className="font-cormorant text-[#D4AF37] text-2xl font-semibold tracking-widest leading-none">STARSBIZ</div>
+              <div className="font-cormorant text-white/40 text-sm tracking-wider leading-none mt-1">starsbiz.ru</div>
             </div>
           </div>
 
