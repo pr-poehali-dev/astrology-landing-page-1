@@ -287,7 +287,7 @@ export default function Index() {
               </p>
               <div className="p-6 border border-[#D4AF37]/30 bg-[#D4AF37]/5">
                 <p className="font-cormorant text-[#D4AF37] text-2xl font-medium leading-snug italic">
-                  «Не гадание — а навигация по времени для тех, кто принимает решения»
+                  «Звёзды не управляют судьбой — но показывают, когда действовать, а когда ждать»
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-6">
