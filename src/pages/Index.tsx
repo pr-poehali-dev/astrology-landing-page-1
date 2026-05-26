@@ -302,22 +302,6 @@ export default function Index() {
 
             <FadeIn delay={0.2}>
               <div className="space-y-6">
-                {/* PDF preview */}
-                <div className="relative">
-                  <div className="absolute -inset-2 border border-[#D4AF37]/10 rotate-1" />
-                  <div className="relative overflow-hidden border border-[#D4AF37]/20">
-                    <img
-                      src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/files/8959c7ff-b6f4-46a0-803c-dca299d5cdd2.jpg"
-                      alt="Пример PDF-отчёта StarsBiz"
-                      className="w-full object-cover"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A1628] to-transparent px-5 py-4">
-                      <div className="text-[#D4AF37] text-xs tracking-widest uppercase">Пример PDF-отчёта</div>
-                      <div className="text-white/40 text-xs mt-1">Реальный формат, который получает клиент</div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Marketing block */}
                 <div className="bg-[#0A1628] border border-[#D4AF37]/15 p-6 space-y-4">
                   <p className="font-cormorant text-[#D4AF37] text-xl italic leading-snug">
