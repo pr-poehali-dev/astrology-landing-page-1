@@ -282,12 +282,12 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeIn delay={0.1}>
               <p className="text-white/65 text-lg leading-relaxed mb-8">
-                Уникальный синтез ведической и классической астрологии с эфемеридной точностью.
-                Конфиденциально, без публичности — исключительно для собственников бизнеса.
+                Авторский метод на стыке западной и ведической традиций — с математической точностью эфемеридного расчёта.
+                Закрытая практика исключительно для собственников бизнеса и топ-менеджеров.
               </p>
               <div className="p-6 border border-[#D4AF37]/30 bg-[#D4AF37]/5">
                 <p className="font-cormorant text-[#D4AF37] text-2xl font-medium leading-snug italic">
-                  «Не гадание — а точный расчёт транзитов для принятия решений»
+                  «Не гадание — а навигация по времени для тех, кто принимает решения»
                 </p>
               </div>
               <div className="mt-8 grid grid-cols-3 gap-6">
@@ -304,16 +304,12 @@ export default function Index() {
               <div className="space-y-6">
                 {/* Marketing block */}
                 <div className="bg-[#0A1628] border border-[#D4AF37]/15 p-6 space-y-4">
-                  <p className="text-white/70 text-sm leading-relaxed">
-                    В основе метода — сплав западной классики, ведической астрологии и секретных алгоритмов коррекции времени.
-                  </p>
-                  <div className="h-px bg-[#D4AF37]/15" />
                   <p className="font-cormorant text-[#D4AF37] text-xl italic leading-snug">
                     «То, о чём молчат другие астрологи. Я не предсказываю будущее — я вычисляю его с погрешностью до 15 минут.»
                   </p>
                   <div className="h-px bg-[#D4AF37]/15" />
                   <p className="text-white/70 text-sm leading-relaxed">
-                    Работаем без публичности. Только для тех, кто не может позволить себе ошибку.
+                    Только для тех, кто не может позволить себе ошибку. Без очереди, без огласки — ваше имя не появится нигде.
                   </p>
                   <p className="text-white/50 text-sm font-medium">В отличие от масс-маркета:</p>
                   <div className="space-y-2">
