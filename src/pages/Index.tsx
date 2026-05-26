@@ -570,10 +570,8 @@ export default function Index() {
                 ОПЛАТИТЬ ОНЛАЙН
               </button>
               <div className="text-white/25 text-xs space-y-1 leading-relaxed">
-                <div>ООО «СтарсБиз»</div>
-                <div>ИНН: 0000000000</div>
-                <div>ОГРН: 0000000000000</div>
-                <div className="text-white/15">г. Москва, ул. Примерная, д. 1</div>
+                <div>ИП Растегаев В.Г.</div>
+                <div>ИНН: 165019486049</div>
               </div>
             </div>
           </div>
