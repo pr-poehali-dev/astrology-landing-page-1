@@ -138,11 +138,12 @@ export default function Index() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollTo("hero")}>
-            <div className="relative w-10 h-10 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full border border-[#D4AF37]/40" />
-              <span className="text-[#D4AF37] text-xl">✦</span>
-            </div>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("hero")}>
+            <img
+              src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
+              alt="StarsBiz"
+              className="w-11 h-11 rounded-full object-cover"
+            />
             <div>
               <div className="font-cormorant text-[#D4AF37] text-xl font-semibold tracking-widest leading-none">STARS</div>
               <div className="font-cormorant text-white/60 text-xs tracking-[0.3em] leading-none">BIZ</div>
@@ -528,10 +529,12 @@ export default function Index() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div className="md:col-span-2">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="relative w-9 h-9 flex items-center justify-center border border-[#D4AF37]/30">
-                  <span className="text-[#D4AF37]">✦</span>
-                </div>
+              <div className="flex items-center gap-2 mb-5">
+                <img
+                  src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
+                  alt="StarsBiz"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
                 <div>
                   <div className="font-cormorant text-[#D4AF37] text-lg font-semibold tracking-widest leading-none">STARSBIZ</div>
                   <div className="text-white/30 text-xs tracking-wider">starsbiz.ru</div>

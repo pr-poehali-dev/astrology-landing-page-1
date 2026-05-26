@@ -75,10 +75,12 @@ export default function Blog() {
         }}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="relative w-10 h-10 flex items-center justify-center border border-[#D4AF37]/40">
-              <span className="text-[#D4AF37] text-xl">✦</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
+              alt="StarsBiz"
+              className="w-11 h-11 rounded-full object-cover"
+            />
             <div>
               <div className="font-cormorant text-[#D4AF37] text-xl font-semibold tracking-widest leading-none">STARS</div>
               <div className="font-cormorant text-white/60 text-xs tracking-[0.3em] leading-none">BIZ</div>
@@ -247,7 +249,14 @@ export default function Blog() {
       {/* FOOTER */}
       <footer className="border-t border-white/8 bg-[#030712] py-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <Link to="/" className="font-cormorant text-[#D4AF37] text-lg tracking-widest font-semibold">STARSBIZ</Link>
+          <Link to="/" className="flex items-center gap-2">
+            <img
+              src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
+              alt="StarsBiz"
+              className="w-8 h-8 rounded-full object-cover"
+            />
+            <span className="font-cormorant text-[#D4AF37] text-lg tracking-widest font-semibold">STARSBIZ</span>
+          </Link>
           <p className="text-white/20 text-xs">© 2025 StarsBiz. Все права защищены.</p>
           <Link to="/" className="text-white/35 text-xs hover:text-[#D4AF37] transition-colors">← Вернуться на главную</Link>
         </div>
