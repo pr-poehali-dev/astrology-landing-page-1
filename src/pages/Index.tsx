@@ -301,14 +301,45 @@ export default function Index() {
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="relative">
-                <div className="absolute -inset-4 border border-[#D4AF37]/10 rotate-3" />
-                <div className="relative bg-[#0A1628] border border-[#D4AF37]/20 p-10 flex flex-col items-center justify-center min-h-64 gap-6">
-                  <div className="text-6xl opacity-80">☿</div>
-                  <div className="flex gap-8 text-4xl opacity-60">
-                    <span>♃</span><span>♄</span><span>♀</span>
+              <div className="space-y-6">
+                {/* PDF preview */}
+                <div className="relative">
+                  <div className="absolute -inset-2 border border-[#D4AF37]/10 rotate-1" />
+                  <div className="relative overflow-hidden border border-[#D4AF37]/20">
+                    <img
+                      src="https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/files/8959c7ff-b6f4-46a0-803c-dca299d5cdd2.jpg"
+                      alt="Пример PDF-отчёта StarsBiz"
+                      className="w-full object-cover"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A1628] to-transparent px-5 py-4">
+                      <div className="text-[#D4AF37] text-xs tracking-widest uppercase">Пример PDF-отчёта</div>
+                      <div className="text-white/40 text-xs mt-1">Реальный формат, который получает клиент</div>
+                    </div>
                   </div>
-                  <div className="text-[#D4AF37]/40 text-xs tracking-widest uppercase">Эфемеридный расчёт</div>
+                </div>
+
+                {/* Marketing block */}
+                <div className="bg-[#0A1628] border border-[#D4AF37]/15 p-6 space-y-4">
+                  <p className="font-cormorant text-[#D4AF37] text-xl italic leading-snug">
+                    «Работаем без публичности. Только для тех, кто не может позволить себе ошибку.»
+                  </p>
+                  <div className="h-px bg-[#D4AF37]/15" />
+                  <p className="text-white/55 text-sm leading-relaxed">
+                    Я не предсказываю будущее. Я <span className="text-white/90">вычисляю его с точностью до 15 минут.</span> Три лучшие даты для сделок, два периода тишины — конкретно, без «ждутся перемены».
+                  </p>
+                  <div className="h-px bg-[#D4AF37]/15" />
+                  <div className="flex items-start gap-3 text-sm text-white/50">
+                    <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">✦</span>
+                    <span>Один клиент сэкономил <span className="text-white/90">700 000 ₽</span>, перенеся сделку на два дня по прогнозу</span>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm text-white/50">
+                    <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">✦</span>
+                    <span>Ваши данные <span className="text-white/90">удаляются после прогноза.</span> Никакой базы, никакой огласки</span>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm text-white/50">
+                    <span className="text-[#D4AF37] mt-0.5 flex-shrink-0">✦</span>
+                    <span>Это не гороскоп из газеты — это <span className="text-white/90">навигатор для вашего календаря</span></span>
+                  </div>
                 </div>
               </div>
             </FadeIn>
