@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Icon from "@/components/ui/icon";
+import TestimonialsStrip from "@/components/TestimonialsStrip";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/files/da42bec6-5d11-4174-8b09-ec83223d0a6f.jpg";
 
@@ -471,6 +472,8 @@ export default function Index() {
           </FadeIn>
         </div>
       </section>
+
+      <TestimonialsStrip />
 
       {/* ORDER FORM */}
       <section id="order" className="py-32 relative overflow-hidden">
