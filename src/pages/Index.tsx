@@ -75,6 +75,7 @@ const steps = [
 
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "+7 ", comment: "" });
   const [pdConsent, setPdConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -180,13 +181,46 @@ export default function Index() {
             Заказать прогноз
           </button>
 
-          {/* Mobile menu button */}
+          {/* Mobile hamburger button */}
           <button
-            onClick={() => scrollTo("order")}
-            className="md:hidden px-4 py-2 border border-[#D4AF37] text-[#D4AF37] text-xs tracking-wider"
+            onClick={() => setMobileMenuOpen((v) => !v)}
+            className="md:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Меню"
           >
-            Заказать
+            <span className={`block w-6 h-0.5 bg-[#D4AF37] transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-[#D4AF37] transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-0.5 bg-[#D4AF37] transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
+        </div>
+
+        {/* Mobile menu dropdown */}
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-96" : "max-h-0"}`}
+          style={{ background: "rgba(5,10,20,0.97)", borderTop: mobileMenuOpen ? "1px solid rgba(212,175,55,0.15)" : "none" }}
+        >
+          <nav className="flex flex-col px-6 py-4 gap-4">
+            {[["about", "Методика"], ["services", "Услуги"], ["how", "Как работаем"], ["order", "Заказать"]].map(([id, label]) => (
+              <button
+                key={id}
+                onClick={() => { scrollTo(id); setMobileMenuOpen(false); }}
+                className="text-white/70 hover:text-[#D4AF37] text-sm tracking-wider transition-colors duration-300 font-medium text-left py-1"
+              >
+                {label}
+              </button>
+            ))}
+            <Link
+              to="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-white/70 hover:text-[#D4AF37] text-sm tracking-wider transition-colors duration-300 font-medium py-1"
+            >
+              Блог
+            </Link>
+            <button
+              onClick={() => { scrollTo("order"); setMobileMenuOpen(false); }}
+              className="mt-2 px-6 py-2.5 border border-[#D4AF37] text-[#D4AF37] text-sm tracking-wider hover:bg-[#D4AF37] hover:text-black transition-all duration-300 font-semibold text-center"
+            >
+              Заказать прогноз
+            </button>
+          </nav>
         </div>
       </header>
 
