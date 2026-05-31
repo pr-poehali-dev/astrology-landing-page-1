@@ -73,11 +73,17 @@ const steps = [
   { icon: "ShieldCheck", title: "Гарантии", desc: "Мы уверены в качестве наших прогнозов. Если не получили полезной информации (ни одной конкретной даты, аспекта или практического совета), мы бесплатно доработаем прогноз с учётом ваших пожеланий." },
 ];
 
+const TBANK_PAYMENT_URL = "https://functions.poehali.dev/e2c3d169-d410-468e-b001-7dfc2df51b14";
+
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "+7 ", comment: "" });
   const [pdConsent, setPdConsent] = useState(false);
+  const [payModal, setPayModal] = useState(false);
+  const [payForm, setPayForm] = useState({ name: "", email: "", phone: "+7 ", service: "Разовый прогноз на месяц", amount: "15000" });
+  const [payLoading, setPayLoading] = useState(false);
+  const [payError, setPayError] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
 
@@ -109,6 +115,38 @@ export default function Index() {
     setSubmitted(true);
     setFormData({ name: "", email: "", phone: "+7 ", comment: "" });
     setPdConsent(false);
+  };
+
+  const handlePaySubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPayError("");
+    if (!payForm.name.trim()) return setPayError("Введите ваше имя");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payForm.email)) return setPayError("Введите корректный email");
+    setPayLoading(true);
+    try {
+      const orderId = `order_${Date.now()}`;
+      const res = await fetch(TBANK_PAYMENT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: parseInt(payForm.amount),
+          orderId,
+          description: payForm.service,
+          email: payForm.email,
+          phone: payForm.phone,
+        }),
+      });
+      const data = await res.json();
+      if (data.paymentUrl) {
+        window.location.href = data.paymentUrl;
+      } else {
+        setPayError(data.error || "Ошибка создания платежа");
+      }
+    } catch {
+      setPayError("Ошибка соединения. Попробуйте ещё раз.");
+    } finally {
+      setPayLoading(false);
+    }
   };
 
   const scrollTo = (id: string) => {
@@ -626,6 +664,81 @@ export default function Index() {
         </div>
       </section>
 
+      {/* PAYMENT MODAL */}
+      {payModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4" onClick={() => setPayModal(false)}>
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+          <div
+            className="relative w-full max-w-md bg-[#080E1C] border border-[#D4AF37]/25 p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setPayModal(false)}
+              className="absolute top-4 right-4 text-white/30 hover:text-white transition-colors text-xl"
+            >
+              ✕
+            </button>
+            <div className="text-center mb-8">
+              <div className="text-[#D4AF37] text-xs tracking-[0.3em] uppercase mb-3">Оплата услуг</div>
+              <h3 className="font-cormorant text-3xl text-white">Оформить оплату</h3>
+            </div>
+            <form onSubmit={handlePaySubmit} className="space-y-4">
+              <select
+                value={payForm.service}
+                onChange={(e) => {
+                  const prices: Record<string, string> = {
+                    "Разовый прогноз на месяц": "15000",
+                    "Подбор бизнес-направления": "10000",
+                    "Годовой прогноз": "25000",
+                    "Другое": "0",
+                  };
+                  setPayForm((p) => ({ ...p, service: e.target.value, amount: prices[e.target.value] || "0" }));
+                }}
+                className="w-full bg-[#0A1020] border border-white/15 text-white px-5 py-4 text-sm focus:outline-none focus:border-[#D4AF37]/60 transition-colors"
+              >
+                <option>Разовый прогноз на месяц</option>
+                <option>Подбор бизнес-направления</option>
+                <option>Годовой прогноз</option>
+                <option>Другое</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Ваше имя *"
+                value={payForm.name}
+                onChange={(e) => setPayForm((p) => ({ ...p, name: e.target.value }))}
+                className="w-full bg-[#0A1020] border border-white/15 text-white placeholder-white/30 px-5 py-4 text-sm focus:outline-none focus:border-[#D4AF37]/60 transition-colors"
+              />
+              <input
+                type="email"
+                placeholder="Email для чека *"
+                value={payForm.email}
+                onChange={(e) => setPayForm((p) => ({ ...p, email: e.target.value }))}
+                className="w-full bg-[#0A1020] border border-white/15 text-white placeholder-white/30 px-5 py-4 text-sm focus:outline-none focus:border-[#D4AF37]/60 transition-colors"
+              />
+              <div className="flex gap-3 items-center bg-[#0A1020] border border-white/15 px-5 py-4">
+                <span className="text-white/40 text-sm">Сумма:</span>
+                <input
+                  type="number"
+                  value={payForm.amount}
+                  onChange={(e) => setPayForm((p) => ({ ...p, amount: e.target.value }))}
+                  className="flex-1 bg-transparent text-[#D4AF37] text-sm font-semibold focus:outline-none"
+                />
+                <span className="text-white/40 text-sm">₽</span>
+              </div>
+              {payError && <p className="text-red-400/80 text-sm">{payError}</p>}
+              <button
+                type="submit"
+                disabled={payLoading}
+                className="w-full py-4 bg-[#D4AF37] text-black font-bold tracking-widest hover:bg-[#FFD700] transition-all duration-300 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {payLoading ? "ПОДОЖДИТЕ..." : "ПЕРЕЙТИ К ОПЛАТЕ"}
+              </button>
+              <p className="text-white/20 text-xs text-center">Оплата через Т-Банк. Безопасно и быстро.</p>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* FOOTER */}
       <footer className="border-t border-white/8 bg-[#030712] py-16">
         <div className="max-w-7xl mx-auto px-6">
@@ -676,6 +789,7 @@ export default function Index() {
             <div>
               <div className="text-white/40 text-xs tracking-widest uppercase mb-5">Оплата</div>
               <button
+                onClick={() => setPayModal(true)}
                 className="w-full py-3 border border-[#D4AF37]/30 text-[#D4AF37]/70 text-xs tracking-wider hover:bg-[#D4AF37]/10 hover:text-[#D4AF37] transition-all duration-300 mb-6"
               >
                 ОПЛАТИТЬ ОНЛАЙН
