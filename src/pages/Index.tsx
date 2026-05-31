@@ -74,6 +74,7 @@ const steps = [
 ];
 
 const TBANK_PAYMENT_URL = "https://functions.poehali.dev/e2c3d169-d410-468e-b001-7dfc2df51b14";
+const SEND_EMAIL_URL = "https://functions.poehali.dev/886dfb06-9b67-4c75-a1a0-0c933a4efba0";
 
 export default function Index() {
   const [scrolled, setScrolled] = useState(false);
@@ -105,13 +106,22 @@ export default function Index() {
     setFormData((p) => ({ ...p, phone: result }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim()) return setFormError("Введите ваше имя");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) return setFormError("Введите корректный email");
     if (formData.phone.replace(/\D/g, "").length < 11) return setFormError("Введите полный номер телефона");
     if (!pdConsent) return setFormError("Необходимо дать согласие на обработку персональных данных");
     setFormError("");
+    try {
+      await fetch(SEND_EMAIL_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (_) {
+      // отправка не критична — заявка засчитывается в любом случае
+    }
     setSubmitted(true);
     setFormData({ name: "", email: "", phone: "+7 ", comment: "" });
     setPdConsent(false);
