@@ -121,6 +121,18 @@ export default function BlogPost() {
             <p className="font-cormorant text-xl text-white/80 italic leading-relaxed">{post.excerpt}</p>
           </div>
 
+          {/* Hero image */}
+          {post.image && (
+            <div className="mb-14" style={{ animation: "fadeInUp 0.7s ease 0.45s both" }}>
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full rounded-sm object-cover max-h-[420px]"
+                style={{ borderBottom: "1px solid rgba(212,175,55,0.2)" }}
+              />
+            </div>
+          )}
+
           {/* Sections */}
           <div className="space-y-14" style={{ animation: "fadeInUp 0.7s ease 0.5s both" }}>
             {post.sections.map((section, i) => (
@@ -164,6 +176,10 @@ export default function BlogPost() {
                     <p className="font-cormorant text-xl text-[#D4AF37] italic leading-snug">{section.highlight}</p>
                   </div>
                 )}
+
+                {section.text2 && section.text2.split("\n\n").map((para, j) => (
+                  <p key={j} className="text-white/65 text-base leading-[1.9] mb-4 mt-4">{para}</p>
+                ))}
               </div>
             ))}
           </div>
