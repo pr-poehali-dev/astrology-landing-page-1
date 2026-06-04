@@ -180,6 +180,20 @@ export default function BlogPost() {
                 {section.text2 && section.text2.split("\n\n").map((para, j) => (
                   <p key={j} className="text-white/65 text-base leading-[1.9] mb-4 mt-4">{para}</p>
                 ))}
+
+                {section.links && (
+                  <div className="mt-6 flex flex-col gap-3">
+                    {section.links.map((link, j) => (
+                      <Link
+                        key={j}
+                        to={link.href}
+                        className="inline-flex items-center gap-2 text-[#D4AF37] text-sm hover:text-[#FFD700] transition-colors underline underline-offset-4 decoration-[#D4AF37]/40 hover:decoration-[#FFD700]"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
