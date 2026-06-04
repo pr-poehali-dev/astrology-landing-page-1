@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Icon from "@/components/ui/icon";
 import { getPostBySlug, blogPosts } from "@/data/blogPosts";
@@ -7,8 +7,17 @@ import { getPostBySlug, blogPosts } from "@/data/blogPosts";
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = getPostBySlug(slug ?? "");
+  const navigate = useNavigate();
 
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+
+  const goToOrder = () => {
+    navigate("/");
+    setTimeout(() => {
+      const el = document.getElementById("order");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
 
   if (!post) return <Navigate to="/blog" replace />;
 
@@ -53,12 +62,12 @@ export default function BlogPost() {
             <Link to="/blog" className="text-[#D4AF37] text-sm tracking-wider font-semibold border-b border-[#D4AF37]/40 pb-0.5">Блог</Link>
           </nav>
 
-          <Link
-            to="/#order"
+          <button
+            onClick={goToOrder}
             className="hidden md:flex items-center gap-2 px-6 py-2.5 border border-[#D4AF37] text-[#D4AF37] text-sm tracking-wider hover:bg-[#D4AF37] hover:text-black transition-all duration-300 font-semibold"
           >
             Заказать прогноз
-          </Link>
+          </button>
           <Link to="/blog" className="md:hidden text-[#D4AF37]/60 text-sm">← Блог</Link>
         </div>
       </header>
@@ -183,15 +192,25 @@ export default function BlogPost() {
 
                 {section.links && (
                   <div className="mt-6 flex flex-col gap-3">
-                    {section.links.map((link, j) => (
-                      <Link
-                        key={j}
-                        to={link.href}
-                        className="inline-flex items-center gap-2 text-[#D4AF37] text-sm hover:text-[#FFD700] transition-colors underline underline-offset-4 decoration-[#D4AF37]/40 hover:decoration-[#FFD700]"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
+                    {section.links.map((link, j) =>
+                      link.href === "/#order" ? (
+                        <button
+                          key={j}
+                          onClick={goToOrder}
+                          className="inline-flex items-center gap-2 text-[#D4AF37] text-sm hover:text-[#FFD700] transition-colors underline underline-offset-4 decoration-[#D4AF37]/40 hover:decoration-[#FFD700] text-left"
+                        >
+                          {link.label}
+                        </button>
+                      ) : (
+                        <Link
+                          key={j}
+                          to={link.href}
+                          className="inline-flex items-center gap-2 text-[#D4AF37] text-sm hover:text-[#FFD700] transition-colors underline underline-offset-4 decoration-[#D4AF37]/40 hover:decoration-[#FFD700]"
+                        >
+                          {link.label}
+                        </Link>
+                      )
+                    )}
                   </div>
                 )}
               </div>
@@ -212,12 +231,12 @@ export default function BlogPost() {
             <p className="text-white/45 text-sm mb-8 leading-relaxed max-w-md mx-auto">
               Персональный расчёт по вашей натальной карте — конкретные даты и рекомендации в PDF-отчёте в течение 24 часов.
             </p>
-            <Link
-              to="/#order"
+            <button
+              onClick={goToOrder}
               className="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black font-bold tracking-wider hover:bg-[#FFD700] transition-all duration-300 text-sm"
             >
               {post.cta} <Icon name="ArrowRight" size={16} />
-            </Link>
+            </button>
           </div>
         </div>
       </article>
