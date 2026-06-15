@@ -12,7 +12,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ConsentData from "./pages/ConsentData";
 import PublicOffer from "./pages/PublicOffer";
 import UserAgreement from "./pages/UserAgreement";
-import NotFound from "./pages/NotFound";
+import NotFound404 from "./pages/NotFound404";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFail from "./pages/PaymentFail";
 
@@ -36,7 +36,7 @@ const App = () => (
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/fail" element={<PaymentFail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound404 />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
