@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function PaymentFail() {
   return (
+    <>
+      <Helmet>
+        <title>Ошибка оплаты — StarsBiz</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
     <div className="min-h-screen bg-[#050A14] flex items-center justify-center px-6">
       <div className="text-center max-w-md">
         <div className="text-6xl mb-8 text-red-400">✕</div>
@@ -17,5 +23,6 @@ export default function PaymentFail() {
         </Link>
       </div>
     </div>
+    </>
   );
 }
