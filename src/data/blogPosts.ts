@@ -136,6 +136,14 @@ export const blogPosts: BlogPost[] = [
         ],
         highlight: "Финансовый астрологический прогноз на месяц стоит 15 000 руб. Обычно он окупается уже на первой сделке.",
       },
+      {
+        heading: "Читайте по теме",
+        links: [
+          { label: "Астрологический риск-менеджмент: совместимость партнёров и запуск бизнеса", href: "/blog/sovmestimost-partnerov-zapusk-biznesa" },
+          { label: "Гороскоп для предпринимателей: как планировать сделки на месяц", href: "/blog/goroskop-dlya-predprinimatelej" },
+          { label: "Астрология для карьерного роста и управления командой", href: "/blog/astrologiya-dlya-kariernogo-rosta" },
+        ],
+      },
     ],
     cta: "Заказать сейчас",
   },
@@ -415,6 +423,14 @@ export const blogPosts: BlogPost[] = [
           { label: "Не знаете точное время рождения? Узнайте про ректификацию →", href: "/blog/rektifikaciya-vremeni-rozhdeniya" },
         ],
       },
+      {
+        heading: "Читайте по теме",
+        links: [
+          { label: "Ректификация времени рождения: как уточнить время для точного прогноза", href: "/blog/rektifikaciya-vremeni-rozhdeniya" },
+          { label: "Астрология и бизнес-решения: как не ошибиться в выборе момента", href: "/blog/prinyatie-reshenij-cherez-astrologiyu" },
+          { label: "Финансовый астрологический прогноз: управляйте денежными потоками", href: "/blog/finansovyj-astrologicheskij-prognoz" },
+        ],
+      },
     ],
     cta: "Заказать прогноз на месяц",
   },
@@ -498,6 +514,14 @@ export const blogPosts: BlogPost[] = [
         links: [
           { label: "Заказать ректификацию и прогноз →", href: "/#order" },
           { label: "Почему натальные карты отличаются на разных сайтах →", href: "/blog/pochemu-raznye-natalnye-karty" },
+        ],
+      },
+      {
+        heading: "Читайте по теме",
+        links: [
+          { label: "Почему натальные карты отличаются на разных сайтах — разбор причин", href: "/blog/pochemu-raznye-natalnye-karty" },
+          { label: "Астрология и бизнес-решения: как принимать верные решения с прогнозом", href: "/blog/prinyatie-reshenij-cherez-astrologiyu" },
+          { label: "Как выбрать дату для переговоров и подписания контрактов по астрологии", href: "/blog/vybor-daty-dlya-peregovorov" },
         ],
       },
     ],
