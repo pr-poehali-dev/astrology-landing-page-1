@@ -24,6 +24,46 @@ export default function BlogPost() {
   const others = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
   const canonicalUrl = `https://starsbiz.ru/blog/${post.slug}`;
 
+  const schemaArticle = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.metaTitle,
+    "description": post.metaDescription,
+    "url": canonicalUrl,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+      "@type": "Person",
+      "name": "StarsBiz",
+      "url": "https://starsbiz.ru"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "StarsBiz",
+      "url": "https://starsbiz.ru",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "articleSection": post.category,
+    ...(post.image ? { "image": post.image } : {})
+  };
+
+  const schemaBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://starsbiz.ru/" },
+      { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://starsbiz.ru/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": canonicalUrl }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-[#050A14] text-white font-montserrat overflow-x-hidden">
       <Helmet>
@@ -40,6 +80,8 @@ export default function BlogPost() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.metaTitle} />
         <meta name="twitter:description" content={post.metaDescription} />
+        <script type="application/ld+json">{JSON.stringify(schemaArticle)}</script>
+        <script type="application/ld+json">{JSON.stringify(schemaBreadcrumb)}</script>
       </Helmet>
 
       {/* HEADER */}

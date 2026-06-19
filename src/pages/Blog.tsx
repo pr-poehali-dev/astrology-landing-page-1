@@ -63,6 +63,30 @@ export default function Blog() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Астрологический блог для бизнеса – StarsBiz" />
         <meta name="twitter:description" content="Экспертные статьи об астрологии для предпринимателей." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Астрологический блог для бизнеса — StarsBiz",
+          "url": "https://starsbiz.ru/blog",
+          "description": "Экспертные статьи об астрологии для предпринимателей: транзиты, выбор дат для сделок, финансовые прогнозы, совместимость партнёров.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "StarsBiz",
+            "url": "https://starsbiz.ru",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg"
+            }
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://starsbiz.ru/" },
+            { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://starsbiz.ru/blog" }
+          ]
+        })}</script>
       </Helmet>
 
       {/* HEADER */}

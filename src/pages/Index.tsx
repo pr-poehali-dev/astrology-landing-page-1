@@ -184,6 +184,32 @@ export default function Index() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="StarsBiz — Астрологический бизнес-консультант" />
         <meta name="twitter:description" content="Точный расчёт транзитов для принятия бизнес-решений. Конфиденциально, под NDA." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          "name": "StarsBiz",
+          "url": "https://starsbiz.ru",
+          "description": "Астрологический бизнес-консультант — точный расчёт транзитов для принятия бизнес-решений. Конфиденциально, под NDA.",
+          "logo": "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/a7bf8ba5-dc79-454d-b1fa-746033e2ce43.jpg",
+          "image": "https://cdn.poehali.dev/projects/55d0d6cb-91ca-48c2-89ac-6273cce5edf0/bucket/0518ec49-0a06-413d-a4c7-554d0716c656.png",
+          "sameAs": ["https://starsbiz.ru"],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "info@starsbiz.ru"
+          }
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "StarsBiz",
+          "url": "https://starsbiz.ru",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://starsbiz.ru/blog?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        })}</script>
       </Helmet>
 
       {/* HEADER */}
