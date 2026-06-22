@@ -2,6 +2,10 @@ User-agent: *
 Allow: /
 Disallow: /payment/success
 Disallow: /payment/fail
+Disallow: /privacy
+Disallow: /consent
+Disallow: /offer
+Disallow: /agreement
 
 Host: https://starsbiz.ru
 
