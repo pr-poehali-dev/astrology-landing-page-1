@@ -15,6 +15,10 @@ import UserAgreement from "./pages/UserAgreement";
 import NotFound404 from "./pages/NotFound404";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentFail from "./pages/PaymentFail";
+import LandingSdelka from "./pages/LandingSdelka";
+import LandingMonthly from "./pages/LandingMonthly";
+import LandingBusiness from "./pages/LandingBusiness";
+import LandingTime from "./pages/LandingTime";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +39,11 @@ const App = () => (
           <Route path="/agreement" element={<UserAgreement />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/fail" element={<PaymentFail />} />
+          {/* Лендинги для Яндекс.Директ */}
+          <Route path="/sdelka" element={<LandingSdelka />} />
+          <Route path="/monthly" element={<LandingMonthly />} />
+          <Route path="/business" element={<LandingBusiness />} />
+          <Route path="/time" element={<LandingTime />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound404 />} />
         </Routes>
