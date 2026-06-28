@@ -25,22 +25,66 @@ def handler(event: dict, context) -> dict:
     email = body.get('email', '').strip()
     phone = body.get('phone', '').strip()
     comment = body.get('comment', '').strip()
+    birth = body.get('birth', '').strip()
+    source = body.get('source', '').strip()
 
-    if not name or not email:
+    if not name:
         return {
             'statusCode': 400,
             'headers': {'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'error': 'Имя и email обязательны'})
+            'body': json.dumps({'error': 'Имя обязательно'})
         }
+
+    source_labels = {
+        'landing-sdelka': '🗓 Лендинг /sdelka — Подбор даты для сделки',
+        'landing-monthly': '📅 Лендинг /monthly — Прогноз на месяц',
+        'landing-business': '💼 Лендинг /business — Подбор ниши',
+        'landing-time': '⏱ Лендинг /time — Ректификация',
+    }
+    source_label = source_labels.get(source, '🌐 Главный сайт starsbiz.ru')
 
     smtp_user = 'vla-rastegaev@yandex.ru'
     smtp_password = os.environ['YANDEX_SMTP_PASSWORD']
     to_email = 'vla-rastegaev@yandex.ru'
 
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = f'Новая заявка на консультацию от {name}'
+    msg['Subject'] = f'Новая заявка от {name} — {source_label}'
     msg['From'] = smtp_user
     msg['To'] = to_email
+
+    rows = f"""
+            <tr>
+                <td style="padding: 10px; font-weight: bold; color: #555; width: 160px;">Источник:</td>
+                <td style="padding: 10px; color: #D4AF37; font-weight: bold;">{source_label}</td>
+            </tr>
+            <tr style="background: #f9f9f9;">
+                <td style="padding: 10px; font-weight: bold; color: #555;">Имя:</td>
+                <td style="padding: 10px;">{name}</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; font-weight: bold; color: #555;">Телефон / Telegram:</td>
+                <td style="padding: 10px;">{phone if phone else '—'}</td>
+            </tr>"""
+
+    if email:
+        rows += f"""
+            <tr style="background: #f9f9f9;">
+                <td style="padding: 10px; font-weight: bold; color: #555;">Email:</td>
+                <td style="padding: 10px;"><a href="mailto:{email}">{email}</a></td>
+            </tr>"""
+
+    if birth:
+        rows += f"""
+            <tr>
+                <td style="padding: 10px; font-weight: bold; color: #555;">Дата рождения:</td>
+                <td style="padding: 10px;">{birth}</td>
+            </tr>"""
+
+    rows += f"""
+            <tr style="background: #f9f9f9;">
+                <td style="padding: 10px; font-weight: bold; color: #555; vertical-align: top;">Комментарий:</td>
+                <td style="padding: 10px;">{comment if comment else '—'}</td>
+            </tr>"""
 
     html = f"""
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -48,22 +92,7 @@ def handler(event: dict, context) -> dict:
             Новая заявка с сайта StarsBiz
         </h2>
         <table style="width: 100%; border-collapse: collapse;">
-            <tr>
-                <td style="padding: 10px; font-weight: bold; color: #555; width: 120px;">Имя:</td>
-                <td style="padding: 10px;">{name}</td>
-            </tr>
-            <tr style="background: #f9f9f9;">
-                <td style="padding: 10px; font-weight: bold; color: #555;">Email:</td>
-                <td style="padding: 10px;"><a href="mailto:{email}">{email}</a></td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; font-weight: bold; color: #555;">Телефон:</td>
-                <td style="padding: 10px;">{phone if phone else '—'}</td>
-            </tr>
-            <tr style="background: #f9f9f9;">
-                <td style="padding: 10px; font-weight: bold; color: #555; vertical-align: top;">Комментарий:</td>
-                <td style="padding: 10px;">{comment if comment else '—'}</td>
-            </tr>
+            {rows}
         </table>
     </div>
     """

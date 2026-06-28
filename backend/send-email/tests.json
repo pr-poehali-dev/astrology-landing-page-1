@@ -7,11 +7,25 @@
       "expectedStatus": 200
     },
     {
-      "name": "Missing required fields",
+      "name": "Missing name — should return 400",
       "method": "POST",
       "path": "/",
       "body": {"comment": "test"},
       "expectedStatus": 400
+    },
+    {
+      "name": "Landing form — no email, with birth and source",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест Лендинг", "phone": "+7 (999) 123-45-67", "birth": "01.01.1980, 10:00, Москва", "comment": "Тест заявки с лендинга", "source": "landing-sdelka"},
+      "expectedStatus": 200
+    },
+    {
+      "name": "Main site form — with email",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест Главная", "email": "test@example.com", "phone": "+7 (999) 123-45-67", "comment": "Тест заявки с главной"},
+      "expectedStatus": 200
     }
   ]
 }
