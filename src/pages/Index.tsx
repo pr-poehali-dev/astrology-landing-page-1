@@ -80,7 +80,7 @@ const steps = [
   { icon: "ShieldCheck", title: "Гарантии", desc: "Мы уверены в качестве наших прогнозов. Если не получили полезной информации (ни одной конкретной даты, аспекта или практического совета), мы бесплатно доработаем прогноз с учётом ваших пожеланий." },
 ];
 
-const TBANK_PAYMENT_URL = "https://functions.poehali.dev/e2c3d169-d410-468e-b001-7dfc2df51b14";
+const TBANK_PAYMENT_URL = "https://functions.poehali.dev/bd1a1cff-d740-4a4c-a3b8-0f120848c43b";
 const SEND_EMAIL_URL = "https://functions.poehali.dev/886dfb06-9b67-4c75-a1a0-0c933a4efba0";
 
 export default function Index() {

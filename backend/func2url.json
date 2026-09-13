@@ -1,5 +1,4 @@
 {
-  "send-email": "https://functions.poehali.dev/886dfb06-9b67-4c75-a1a0-0c933a4efba0",
-  "tbank-status": "https://functions.poehali.dev/0c1868ee-6473-4871-b0bb-abc29dc1fc65",
-  "tbank-payment": "https://functions.poehali.dev/e2c3d169-d410-468e-b001-7dfc2df51b14"
+  "tbank": "https://functions.poehali.dev/bd1a1cff-d740-4a4c-a3b8-0f120848c43b",
+  "send-email": "https://functions.poehali.dev/886dfb06-9b67-4c75-a1a0-0c933a4efba0"
 }
